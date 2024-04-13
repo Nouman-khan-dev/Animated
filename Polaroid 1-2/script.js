@@ -34,11 +34,11 @@ const body = document.body;
 // =============================================
 
 function camera() {
-    canvas.width = window.innerHeight;
+    canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
     window.addEventListener('resize', () => {
-        canvas.width = window.innerHeight;
+        canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
         render();
     });
@@ -226,7 +226,7 @@ function camera() {
         let vRatio = canvas.height / img.height;
         let ratio = Math.max(hRatio, vRatio);
         let centerShift_x = canvas.width - (img.width * ratio) / 2;
-        let centerShift_y = (img.height * ratio) / 2;
+        let centerShift_y = (canvas.height - img.height * ratio) / 2;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(
             img,
@@ -237,7 +237,7 @@ function camera() {
             centerShift_x,
             centerShift_y,
             img.width * ratio,
-            img.hRatio * ratio
+            img.height * ratio
         );
     }
     // ---

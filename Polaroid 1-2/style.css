@@ -236,5 +236,5 @@ header {
 
 .part_3 #canvas {
     max-width: 100vw;
-    max-height: 100vh;
+    min-height: 100vh;
 }
